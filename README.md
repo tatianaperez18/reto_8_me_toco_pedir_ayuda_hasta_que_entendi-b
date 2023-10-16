@@ -139,11 +139,31 @@ print("la aproximacion es de: " + str(aproximacion)+ " y un error de: "+ str(cad
 10. Diseñar una función que permita calcular una aproximación de la función arcotangente alrededor de 0 para cualquier valor x en el rango [-1, 1], utilizando los primeros n términos de la serie de Maclaurin. Nota: use math para traer la función arctan y mostrar la diferencia entre el valor real y la aproximación.
 
 ```pseudocode
-i: int = 1 #<inicia>
-print("el valor de i antes del ciclo: " + str(i))
-while(i <= 100): #<cond>
-    cuadrado = i ** 2 #<bloque>
-    print("el valor dentro del ciclo: " + str(i)+ "y su cuadrado: " + str(cuadrado))
-    i += 1 #<actualizada>
-print("valor final de i: " + str(i))
+import math #importe la funcion math para luego poder implementarla
+
+def aproximacion_arctan(x, n): #defini la aproximacion arcontangente con los argumentos x y n 
+    if abs(x) > 1:
+        return None  # La serie de Maclaurin de arctan es válida solo para valores |x| <= 1
+
+    aproximacion = 0 #estableci la variable aproximacion con un valor de 0
+    
+    for i in range(n): #se itera los valores 0 a n dado para cada elemento de i
+        termino = ((-1) ** i) * (x ** (2 * i + 1)) / (2 * i + 1) #calcule la ecuacion dada por taylor para la funcion seno
+        aproximacion += termino #sume la aproximacion con el termino segun los terminos dados n y asi calcular la aproximacion con la formula de taylor 
+    
+    return aproximacion #retorna la aproximacion
+# Calcular la aproximación de la función exponencial para x = 0.7, utilizando los primeros 7 términos de la serie de Maclaurin
+x:float = 0.7
+n:int = 7
+while True: #use el ciclo while para que luego este cumpla la funcion if
+  aproximacion = aproximacion_arctan(x, n) #llame la funcion def para luego imprimirla y para hallar el error
+  error = abs(valor_real - aproximacion) #calcule el error con el valor real restando a la aproximacion hayada y use la funcion abs para que lo calcule con el valor absoluto
+  # Imprimir la diferencia si es menor del 0.1% de lo contrario no se ejecutara el programa ya que no se podra imprimir la cadena
+  if error < 0.001: 
+     break
+  valor_real = math.atan(x) #se haya el valor real para luego imprimirlo
+porcentaje = error * 100 #multipliquee el error por 100 para darlo en porcentaje
+cadena = "{:.2f}%".format(porcentaje) #lo puse en un cadena de solo dos decimales 
+print("el valor real es de: " + str(valor_real)) #imprime el valor real
+print("la aproximacion es de: " + str(aproximacion)+ " y un error de: "+ str(cadena)) # imprime la aproximacion y el error
 ```
