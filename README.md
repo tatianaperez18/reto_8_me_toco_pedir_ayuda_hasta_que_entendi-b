@@ -1,12 +1,14 @@
 # reto_8_me_toco_pedir_ayuda_hasta_que_entendi-b
 1. Imprimir un listado con los números del 1 al 100 cada uno con su respectivo cuadrado.
-   ```pseudocode
+
+```pseudocode
 range(1, 101) # estableci una lista con un rango del 1 al 100 
 c:int = 2 # estableci la variable con 2 para luego hallar la potencia del rango
 for n in range(1, 101): # para cada elemento n de la lista del rango previamente establecido
     cuadrado = n ** c #aqui solo calcule el cuadrado para cada elemento de n al cuadrado por la variable establecida
     print("el numero: " + str(n)+ " y su cuadrado es: " + str(cuadrado)) #imprimi el numero y su cuadrado
 ```
+
 2. Imprimir un listado con los números impares desde 1 hasta 999 y seguidamente otro listado con los números pares desde 2 hasta 1000.
 
 ```pseudocode
